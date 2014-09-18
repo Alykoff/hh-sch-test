@@ -11,6 +11,8 @@
  Пример выходных данных:
  5
  */
+package ru.hh.assignments;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Comparator;

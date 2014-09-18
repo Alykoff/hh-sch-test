@@ -11,6 +11,8 @@
 2 3 5 - 4 6
 no
 */
+package ru.hh.assignments;
+
 public class Task2 {
 	public static void main(String[] args) {
 		// TODO task2

@@ -1,5 +1,7 @@
 /target
 /classes
+/bin
+/.settings
 *.jar
 *.class
 .idea
