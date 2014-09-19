@@ -20,7 +20,25 @@ public class Task1 {
     private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;
 
     public static void main(String[] args) {
-        meth1(args);
+        if (args.length < MIN_NUM_OF_INPUT_ELEMENTS) {
+            throw new IllegalArgumentException("Number of arguments can't be less than 4.");
+        }
+        if (args.length % 2 != 0) {
+            throw new IllegalArgumentException("The number of arguments must be even.");
+        }
+        
+        Point[] points = null;
+        try {
+            points = getPoints(args);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid number format in input date.", e);
+        }
+        
+        double[] lengthsOfSegments = getLengthsOfSegments(points);
+        System.out.println(Arrays.toString(lengthsOfSegments));
+        
+        double minEl = min(lengthsOfSegments);
+        System.out.println(minEl);
     }
 
     private static Point[] getPoints(String[] args)
@@ -35,21 +53,7 @@ public class Task1 {
         return result;
     }
 
-    private static double meth1(String[] args) {
-        if (args.length < MIN_NUM_OF_INPUT_ELEMENTS) {
-            throw new IllegalArgumentException("Number of arguments can't be less than 4.");
-        }
-        if (args.length % 2 != 0) {
-            throw new IllegalArgumentException("The number of arguments must be even.");
-        }
-
-        Point[] points = null;
-        try {
-            points = getPoints(args);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Invalid number format in input date.", e);
-        }
-
+    private static double[] getLengthsOfSegments(Point[] points) {
         int numOfPoints = points.length;
         int numOfLengthsOfSegments = numOfPoints * (numOfPoints - 1) / 2;
         double[] lengthsOfSegments = new double[numOfLengthsOfSegments];
@@ -60,10 +64,7 @@ public class Task1 {
                 lengthsOfSegments[count++] = len(points[i], points[j]);
             }
         }
-        
-        System.out.println(Arrays.toString(lengthsOfSegments));
-        double minEl = min(lengthsOfSegments);
-        return minEl;
+        return lengthsOfSegments;
     }
 
     private static double len(Point p1, Point p2) {
