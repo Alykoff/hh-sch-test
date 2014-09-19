@@ -17,7 +17,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class Task1 {
-    private static final int MIN_NUMBER_OF_INPUT_ELEMENTS = 4;
+    private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;
 
     public static void main(String[] args) {
         meth1(args);
@@ -36,38 +36,48 @@ public class Task1 {
     }
 
     private static double meth1(String[] args) {
-        if (args.length < MIN_NUMBER_OF_INPUT_ELEMENTS) {
-            throw new IllegalArgumentException();
+        if (args.length < MIN_NUM_OF_INPUT_ELEMENTS) {
+            throw new IllegalArgumentException("Number of arguments can't be less than 4.");
         }
         if (args.length % 2 != 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("The number of arguments must be even.");
         }
 
         Point[] points = null;
         try {
             points = getPoints(args);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid number format in input date.", e);
         }
 
-        int len = points.length;
-        double[] lengths = new double[len * (len - 1) / 2];
+        int numOfPoints = points.length;
+        int numOfLengthsOfSegments = numOfPoints * (numOfPoints - 1) / 2;
+        double[] lengthsOfSegments = new double[numOfLengthsOfSegments];
+        
         int count = 0;
-        for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
-                lengths[count++] = len(points[i], points[j]);
+        for (int i = 0; i < numOfPoints; i++) {
+            for (int j = i + 1; j < numOfPoints; j++) {
+                lengthsOfSegments[count++] = len(points[i], points[j]);
             }
         }
-
-        Arrays.sort(lengths);
-        System.out.println(Arrays.toString(lengths));
-        return lengths[0];
+        
+        System.out.println(Arrays.toString(lengthsOfSegments));
+        double minEl = min(lengthsOfSegments);
+        return minEl;
     }
 
     private static double len(Point p1, Point p2) {
         long xLen = (p1.getX() - p2.getX());
         long yLen = (p1.getY() - p2.getY());
         return Math.sqrt(xLen * xLen + yLen * yLen);
+    }
+    
+    private static double min(double[] elements) {
+        double minEl = elements[0];
+        for (double el : elements) {
+            if (el < minEl) minEl = el;
+        }
+        return minEl;
     }
 }
 
