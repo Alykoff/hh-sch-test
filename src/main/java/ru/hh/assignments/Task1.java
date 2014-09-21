@@ -13,17 +13,15 @@
  */
 package ru.hh.assignments;
 
-import java.io.Serializable;
-
 public class Task1 {
     private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;
 
     public static void main(String[] args) {
-        double minEl = searchMinLength(args);
+        double minEl = doTask(args);
         System.out.println(minEl);
     }
     
-    public static double searchMinLength(String[] args) {
+    public static double doTask(String[] args) {
         if (args.length < MIN_NUM_OF_INPUT_ELEMENTS) {
             throw new IllegalArgumentException("Number of arguments can't be less than 4.");
         }
@@ -39,7 +37,7 @@ public class Task1 {
         }
         
         double[] lengthsOfSegments = getLengthsOfSegments(points);
-        return min(lengthsOfSegments);
+        return Util.min(lengthsOfSegments);
     }
     
     private static Point[] getPoints(String[] args)
@@ -62,47 +60,11 @@ public class Task1 {
         int count = 0;
         for (int i = 0; i < numOfPoints; i++) {
             for (int j = i + 1; j < numOfPoints; j++) {
-                lengthsOfSegments[count++] = len(points[i], points[j]);
+                lengthsOfSegments[count++] = Util.len(points[i], points[j]);
             }
         }
         return lengthsOfSegments;
     }
 
-    private static double len(Point p1, Point p2) {
-        long xLen = (p1.getX() - p2.getX());
-        long yLen = (p1.getY() - p2.getY());
-        return Math.sqrt(xLen * xLen + yLen * yLen);
-    }
     
-    private static double min(double[] elements) {
-        double minEl = elements[0];
-        for (double el : elements) {
-            if (el < minEl) minEl = el;
-        }
-        return minEl;
-    }
-}
-
-class Point implements Serializable {
-    private static final long serialVersionUID = 1832418215504598793L;
-    
-    private final long x, y;
-
-    public Point(long x, long y) {
-        this.x = x;
-        this.y = y;
-    }
-    
-    @Override
-    public String toString() {
-        return "Point(" + x + "; " + y + ")";
-    }
-
-    public long getX() {
-        return x;
-    }
-
-    public long getY() {
-        return y;
-    }
 }
