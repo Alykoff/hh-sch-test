@@ -17,11 +17,11 @@ public class Task1 {
     private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;
 
     public static void main(String[] args) {
-        double minEl = doTask(args);
+        String minEl = doTask(args);
         System.out.println(minEl);
     }
     
-    public static double doTask(String[] args) {
+    public static String doTask(String[] args) {
         if (args.length < MIN_NUM_OF_INPUT_ELEMENTS) {
             throw new IllegalArgumentException("Number of arguments can't be less than 4.");
         }
@@ -37,7 +37,7 @@ public class Task1 {
         }
         
         double[] lengthsOfSegments = getLengthsOfSegments(points);
-        return Util.min(lengthsOfSegments);
+        return String.valueOf(Util.min(lengthsOfSegments));
     }
     
     private static Point[] getPoints(String[] args)

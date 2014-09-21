@@ -18,10 +18,10 @@ package ru.hh.assignments;
 
 public class Task2 {
     public static void main(String[] args) {
-        doTask(args);
+        System.out.println(doTask(args));
     }
     
-    public static void doTask(String[] args) {
+    public static String doTask(String[] args) {
         if (args == null || args.length == 0) {
             throw new IllegalArgumentException();
         }
@@ -38,8 +38,7 @@ public class Task2 {
         visitors[0] = new TwoPartEqVisitor(els);
         visitors[1] = new VisitorCalcSum100(els);
         iterateAllCombinations(els, visitors);
-        System.out.println(visitors[0].getResult());
-        System.out.println(visitors[1].getResult());
+        return visitors[0].getResult() + "\n" + visitors[1].getResult();
     }
     
     public static void iterateAllCombinations(int[] els, VisitorArrInt[] visitors) {

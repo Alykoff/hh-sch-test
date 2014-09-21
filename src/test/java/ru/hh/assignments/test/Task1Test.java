@@ -8,8 +8,8 @@ public class Task1Test {
     @Test
     public void testSearchMinLengths() {
         String[] args = "10 10 20 10 20 15".split(" ");
-        double minEl = Task1.doTask(args);
-        assertEquals(minEl, 5, 0);
+        String minEl = Task1.doTask(args);
+        assertEquals(minEl, "5");
     }
 
 }
