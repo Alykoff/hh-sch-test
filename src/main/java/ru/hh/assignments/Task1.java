@@ -14,12 +14,16 @@
 package ru.hh.assignments;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Task1 {
     private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;
 
     public static void main(String[] args) {
+        double minEl = searchMinLength(args);
+        System.out.println(minEl);
+    }
+    
+    public static double searchMinLength(String[] args) {
         if (args.length < MIN_NUM_OF_INPUT_ELEMENTS) {
             throw new IllegalArgumentException("Number of arguments can't be less than 4.");
         }
@@ -35,12 +39,9 @@ public class Task1 {
         }
         
         double[] lengthsOfSegments = getLengthsOfSegments(points);
-        System.out.println(Arrays.toString(lengthsOfSegments));
-        
-        double minEl = min(lengthsOfSegments);
-        System.out.println(minEl);
+        return min(lengthsOfSegments);
     }
-
+    
     private static Point[] getPoints(String[] args)
             throws NumberFormatException {
         Point[] result = new Point[args.length / 2];
@@ -91,6 +92,11 @@ class Point implements Serializable {
         this.x = x;
         this.y = y;
     }
+    
+    @Override
+    public String toString() {
+        return "Point(" + x + "; " + y + ")";
+    }
 
     public long getX() {
         return x;
@@ -98,9 +104,5 @@ class Point implements Serializable {
 
     public long getY() {
         return y;
-    }
-
-    public String toString() {
-        return "Point(" + x + "; " + y + ")";
     }
 }
