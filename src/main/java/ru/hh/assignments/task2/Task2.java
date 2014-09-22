@@ -16,7 +16,10 @@
  */
 package ru.hh.assignments.task2;
 
-public class Task2 {
+import java.io.Serializable;
+
+public class Task2 implements Serializable {
+    private static final long serialVersionUID = -8679609024840591334L;
     public static final int SEARCH_SUM = 100;
 
     public static void main(String[] args) {

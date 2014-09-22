@@ -13,11 +13,15 @@
   */
 package ru.hh.assignments.task1;
 
+import java.io.Serializable;
+
 import ru.hh.assignments.Util;
 
-public class Task1 {
+public class Task1 implements Serializable {
+    private static final long serialVersionUID = -6836187127547323610L;
     private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;
-
+    private static final String INTEGER_PATTERN = "(.)*\\.0$";
+    
     public static void main(String[] args) {
         String minEl = doTask(args);
         System.out.println(minEl);
@@ -40,7 +44,7 @@ public class Task1 {
         
         double[] lengthsOfSegments = getLengthsOfSegments(points);
         String result = String.valueOf(Util.min(lengthsOfSegments));
-        return result.replaceAll("(.)*\\.0$", "$1");
+        return result.replaceAll(INTEGER_PATTERN, "$1");
     }
     
     private static Point[] getPoints(String[] args) throws NumberFormatException {
