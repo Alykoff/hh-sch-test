@@ -24,8 +24,8 @@ public class Task2Test {
     public void testSimple() {
         String[] args = "2 4 3 6 5".split(" ");
         String result = new Task2().doTask(args);
-        String ouput1 = "[4, 6] - [2, 3, 5]\n" + SumVisitor.NO_ANSWER;
-        String ouput2 = "[2, 3, 5] - [4, 6]\n" + SumVisitor.NO_ANSWER;
+        String ouput1 = "4 6 - 2 3 5\n" + SumVisitor.NO_ANSWER;
+        String ouput2 = "2 3 5 - 4 6\n" + SumVisitor.NO_ANSWER;
         assertThat(result, anyOf(is(ouput1), is(ouput2)));
     }
     

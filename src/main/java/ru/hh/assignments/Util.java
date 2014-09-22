@@ -31,4 +31,13 @@ public class Util {
         }
         return result;
     }
+    
+    public static String arrToString(int[] arr) {
+        if (arr == null) return "";
+        StringBuilder builder = new StringBuilder();
+        for (int el : arr) {
+            builder.append(el).append(" ");
+        }
+        return builder.toString().trim();
+    }
 }

@@ -1,7 +1,5 @@
 package ru.hh.assignments.task2;
 
-import java.util.Arrays;
-
 import ru.hh.assignments.Util;
 
 public class BalanceVisitor extends AbstractTaskVisitor {
@@ -31,7 +29,7 @@ public class BalanceVisitor extends AbstractTaskVisitor {
                     elsTwo[countTwo++] = inputData[i];
                 }
             }
-            result = Arrays.toString(elsOne) + " - " + Arrays.toString(elsTwo);
+            result = Util.arrToString(elsOne) + " - " + Util.arrToString(elsTwo);
             endFlag = true;
         }
     }
