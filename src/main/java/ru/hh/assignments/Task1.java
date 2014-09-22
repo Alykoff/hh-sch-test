@@ -1,16 +1,16 @@
 /**
- Дан набор из N точек на плоскости (для простоты можно считать, 
- что у всех точек целочисленные координаты). 
- Найдите минимальное расстояние между двумя точками из этого набора.
- 
- Пример входных данных:
- 10 10
- 20 10
- 20 15
- 
- Пример выходных данных:
- 5
- */
+  *    Дан набор из N точек на плоскости (для простоты можно считать, 
+  *    что у всех точек целочисленные координаты). 
+  *    Найдите минимальное расстояние между двумя точками из этого набора.
+  *    
+  *    Пример входных данных:
+  *    10 10
+  *    20 10
+  *    20 15
+  *    
+  *    Пример выходных данных:
+  *    5
+  */
 package ru.hh.assignments;
 
 public class Task1 {
@@ -37,11 +37,11 @@ public class Task1 {
         }
         
         double[] lengthsOfSegments = getLengthsOfSegments(points);
-        return String.valueOf(Util.min(lengthsOfSegments));
+        String result = String.valueOf(Util.min(lengthsOfSegments));
+        return result.replaceAll("(.)*\\.0$", "$1");
     }
     
-    private static Point[] getPoints(String[] args)
-            throws NumberFormatException {
+    private static Point[] getPoints(String[] args) throws NumberFormatException {
         Point[] result = new Point[args.length / 2];
 
         for (int i = 0; i < args.length; i += 2) {
@@ -65,6 +65,5 @@ public class Task1 {
         }
         return lengthsOfSegments;
     }
-
     
 }
