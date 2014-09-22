@@ -3,6 +3,8 @@ package ru.hh.assignments.task2;
 import ru.hh.assignments.Util;
 
 public class BalanceVisitor extends AbstractTaskVisitor {
+    private static final long serialVersionUID = -3014303396240828234L;
+
     public BalanceVisitor(int[] inputData) {
         super(inputData);
         result = "";

@@ -1,8 +1,10 @@
 package ru.hh.assignments.task2;
 
 public class SumVisitor extends AbstractTaskVisitor {
+    private static final long serialVersionUID = 5260600030736418679L;
     public static final String YES_ANSWER = "yes";
     public static final String NO_ANSWER = "no";
+
     public final int searchSum;
     
     public SumVisitor(int[] inputData, int sum) {
@@ -10,6 +12,7 @@ public class SumVisitor extends AbstractTaskVisitor {
         searchSum = sum;
         result = NO_ANSWER;
     }
+    
     @Override
     public void visit(int[] set) {
         if (endFlag) return;
@@ -24,6 +27,5 @@ public class SumVisitor extends AbstractTaskVisitor {
             result = YES_ANSWER;
             endFlag = true;
         }
-        
     }
 }
