@@ -30,6 +30,7 @@ public class BalanceVisitor extends AbstractTaskVisitor {
                 }
             }
             result = Arrays.toString(elsOne) + " - " + Arrays.toString(elsTwo);
+            System.out.println(result);
             endFlag = true;
         }
     }
