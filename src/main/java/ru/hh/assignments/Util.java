@@ -1,5 +1,7 @@
 package ru.hh.assignments;
 
+import ru.hh.assignments.task1.Point;
+
 public class Util {
     public static double len(Point p1, Point p2) {
         long xLen = (p1.getX() - p2.getX());

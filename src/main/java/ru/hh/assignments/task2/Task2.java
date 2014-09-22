@@ -14,7 +14,7 @@
  *    2 3 5 - 4 6
  *    no
  */
-package ru.hh.assignments;
+package ru.hh.assignments.task2;
 
 public class Task2 {
     public static final int SEARCH_SUM = 100;

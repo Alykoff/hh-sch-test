@@ -11,7 +11,9 @@
   *    Пример выходных данных:
   *    5
   */
-package ru.hh.assignments;
+package ru.hh.assignments.task1;
+
+import ru.hh.assignments.Util;
 
 public class Task1 {
     private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;

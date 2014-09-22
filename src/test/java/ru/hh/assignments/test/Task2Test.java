@@ -7,8 +7,8 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import ru.hh.assignments.SumVisitor;
-import ru.hh.assignments.Task2;
+import ru.hh.assignments.task2.SumVisitor;
+import ru.hh.assignments.task2.Task2;
 
 public class Task2Test {
     @Test

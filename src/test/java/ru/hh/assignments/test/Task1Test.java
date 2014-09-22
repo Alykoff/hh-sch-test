@@ -1,8 +1,10 @@
 package ru.hh.assignments.test;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
-import ru.hh.assignments.Task1;
+
+import ru.hh.assignments.task1.Task1;
 
 public class Task1Test {
     

@@ -1,4 +1,4 @@
-package ru.hh.assignments;
+package ru.hh.assignments.task2;
 
 public class SumVisitor extends AbstractTaskVisitor {
     public static final String YES_ANSWER = "yes";

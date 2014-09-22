@@ -1,4 +1,4 @@
-package ru.hh.assignments;
+package ru.hh.assignments.task2;
 
 public interface Visitor<T> {
     public void visit(T t);

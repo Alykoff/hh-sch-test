@@ -1,4 +1,4 @@
-package ru.hh.assignments;
+package ru.hh.assignments.task1;
 
 import java.io.Serializable;
 

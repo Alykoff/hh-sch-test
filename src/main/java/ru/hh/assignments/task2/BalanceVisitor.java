@@ -1,6 +1,8 @@
-package ru.hh.assignments;
+package ru.hh.assignments.task2;
 
 import java.util.Arrays;
+
+import ru.hh.assignments.Util;
 
 public class BalanceVisitor extends AbstractTaskVisitor {
     public BalanceVisitor(int[] inputData) {

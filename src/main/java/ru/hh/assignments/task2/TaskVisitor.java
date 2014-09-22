@@ -1,4 +1,4 @@
-package ru.hh.assignments;
+package ru.hh.assignments.task2;
 
 public interface TaskVisitor extends Visitor<int[]> {
 

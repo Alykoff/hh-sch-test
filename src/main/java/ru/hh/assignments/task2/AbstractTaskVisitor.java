@@ -1,4 +1,6 @@
-package ru.hh.assignments;
+package ru.hh.assignments.task2;
+
+import ru.hh.assignments.Util;
 
 public abstract class AbstractTaskVisitor implements TaskVisitor {
     protected int[] inputData;
