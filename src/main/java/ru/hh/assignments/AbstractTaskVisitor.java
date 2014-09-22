@@ -1,12 +1,12 @@
 package ru.hh.assignments;
 
-public abstract class SimpleVisitorAbstract implements VisitorArrInt {
+public abstract class AbstractTaskVisitor implements TaskVisitor {
     protected int[] inputData;
     protected long sumOfAllElements;
     protected boolean endFlag;
     protected String result;
     
-    public SimpleVisitorAbstract(int[] inputData) {
+    public AbstractTaskVisitor(int[] inputData) {
         this.inputData = inputData;
         this.sumOfAllElements = Util.sum(inputData);
     }
@@ -15,6 +15,7 @@ public abstract class SimpleVisitorAbstract implements VisitorArrInt {
     public boolean isEnd() {
         return endFlag;
     }
+    
     @Override
     public String getResult() {
         return result;

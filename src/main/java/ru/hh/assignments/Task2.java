@@ -16,7 +16,11 @@ no
  */
 package ru.hh.assignments;
 
+import java.util.Arrays;
+
 public class Task2 {
+    public static final int SEARCH_SUM = 100;
+    
     public static void main(String[] args) {
         System.out.println(doTask(args));
     }
@@ -33,22 +37,23 @@ public class Task2 {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(e);
         }
+        System.out.println(Arrays.toString(els));
         
-        VisitorArrInt[] visitors = new VisitorArrInt[2];
-        visitors[0] = new TwoPartEqVisitor(els);
-        visitors[1] = new VisitorCalcSum100(els);
+        TaskVisitor[] visitors = new TaskVisitor[2];
+        visitors[0] = new BalanceVisitor(els);
+        visitors[1] = new SumVisitor(els, SEARCH_SUM);
         iterateAllCombinations(els, visitors);
         return visitors[0].getResult() + "\n" + visitors[1].getResult();
     }
     
-    public static void iterateAllCombinations(int[] els, VisitorArrInt[] visitors) {
+    public static void iterateAllCombinations(int[] els, TaskVisitor[] visitors) {
         int maxNumInSet = els.length / 2;
         for (int i = 1; i <= maxNumInSet; i++) {
             iterateCombinationWithNEls(els, visitors, i);
         }
     }
     
-    private static void iterateCombinationWithNEls(int[] els, VisitorArrInt[] visitors, int numOfKeys) {
+    private static void iterateCombinationWithNEls(int[] els, TaskVisitor[] visitors, int numOfKeys) {
         int numOfEls = els.length;
         int[] keys = new int[numOfKeys];
         for (int i = 0; i < numOfKeys; i++) {
@@ -71,8 +76,8 @@ public class Task2 {
                 continue;
             }
             
-            boolean isEnd = handleVisitors(visitors, keys);
-            if (isEnd) {
+            handleVisitors(visitors, keys);
+            if (isEndForVisitors(visitors)) {
                 return;
             }
             
@@ -83,13 +88,19 @@ public class Task2 {
         }
     }
     
-    private static boolean handleVisitors(VisitorArrInt[] visitors, int[] keys) {
-        boolean isEnd = false;
-        for (VisitorArrInt visitor : visitors) {
+    private static void handleVisitors(TaskVisitor[] visitors, int[] keys) {
+        for (TaskVisitor visitor : visitors) {
             visitor.visit(keys);
-            isEnd &= visitor.isEnd();
         }
-        return isEnd;
+    }
+    
+    private static boolean isEndForVisitors(TaskVisitor[] visitors) {
+        for (TaskVisitor visitor : visitors) {
+            if (!visitor.isEnd()) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

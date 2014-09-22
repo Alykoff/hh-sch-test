@@ -2,8 +2,8 @@ package ru.hh.assignments;
 
 import java.util.Arrays;
 
-public class TwoPartEqVisitor extends SimpleVisitorAbstract {
-    public TwoPartEqVisitor(int[] inputData) {
+public class BalanceVisitor extends AbstractTaskVisitor {
+    public BalanceVisitor(int[] inputData) {
         super(inputData);
         result = "";
     }

@@ -1,12 +1,13 @@
 package ru.hh.assignments;
 
-public class VisitorCalcSum100 extends SimpleVisitorAbstract {
-    public static final int MAIN_SUM = 100;
+public class SumVisitor extends AbstractTaskVisitor {
     public static final String YES_ANSWER = "yes";
     public static final String NO_ANSWER = "no";
+    public final int searchSum;
     
-    public VisitorCalcSum100(int[] inputData) {
+    public SumVisitor(int[] inputData, int sum) {
         super(inputData);
+        searchSum = sum;
         result = NO_ANSWER;
     }
     @Override
@@ -18,8 +19,8 @@ public class VisitorCalcSum100 extends SimpleVisitorAbstract {
             sumSelectedEls += inputData[elOfSet];
         }
         
-        if (sumSelectedEls == MAIN_SUM 
-                || (sumOfAllElements - sumSelectedEls) == MAIN_SUM) {
+        if (sumSelectedEls == searchSum
+                || (sumOfAllElements - sumSelectedEls) == searchSum) {
             result = YES_ANSWER;
             endFlag = true;
         }
