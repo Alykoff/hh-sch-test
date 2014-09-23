@@ -17,7 +17,6 @@ public class BalanceVisitor extends AbstractTaskVisitor {
         }
     }
     
-    @Override
     public void visit(int[] set) {
         if (endFlag) return;
         

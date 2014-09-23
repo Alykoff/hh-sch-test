@@ -17,12 +17,10 @@ public abstract class AbstractTaskVisitor implements TaskVisitor, Serializable {
         this.sumOfAllElements = Util.sum(inputData);
     }
     
-    @Override
     public boolean isEnd() {
         return endFlag;
     }
     
-    @Override
     public String getResult() {
         return result;
     }

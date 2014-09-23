@@ -13,7 +13,6 @@ public class SumVisitor extends AbstractTaskVisitor {
         result = NO_ANSWER;
     }
     
-    @Override
     public void visit(int[] set) {
         if (endFlag) return;
         
