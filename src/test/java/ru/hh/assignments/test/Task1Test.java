@@ -15,6 +15,14 @@ public class Task1Test {
         assertEquals(minEl, "5");
     }
     
+    @Test
+    public void testWithNoIntAnsw() {
+        String[] args = "10 10 20 10 20 15 11 11".split(" ");
+        String minEl = Task1.doTask(args);
+        String answer = String.valueOf(Math.sqrt(2D));
+        assertEquals(minEl, answer);
+    }
+    
     @Test(expected=IllegalArgumentException.class)
     public void testWithBadInput() {
         String[] args = new String[]{"1.1 1 2 3"};
