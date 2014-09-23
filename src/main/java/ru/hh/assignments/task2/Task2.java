@@ -21,6 +21,7 @@ import java.io.Serializable;
 public class Task2 implements Serializable {
     private static final long serialVersionUID = -8679609024840591334L;
     public static final int SEARCH_SUM = 100;
+    public static final String VISITOR_ANSWER_DELIMITER = "\n";
 
     public static void main(String[] args) {
         System.out.println(new Task2().doTask(args));
@@ -43,7 +44,7 @@ public class Task2 implements Serializable {
         visitors[0] = new BalanceVisitor(els);
         visitors[1] = new SumVisitor(els, SEARCH_SUM);
         iterateAllCombinations(els, visitors);
-        return visitors[0].getResult() + "\n" + visitors[1].getResult();
+        return visitors[0].getResult() + VISITOR_ANSWER_DELIMITER + visitors[1].getResult();
     }
 
     protected void iterateAllCombinations(int[] els, TaskVisitor[] visitors) {
