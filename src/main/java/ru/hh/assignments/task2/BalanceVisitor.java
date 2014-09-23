@@ -4,6 +4,7 @@ import ru.hh.assignments.Util;
 
 public class BalanceVisitor extends AbstractTaskVisitor {
     private static final long serialVersionUID = -3014303396240828234L;
+    public static final String DELIMITER = " - ";
 
     public BalanceVisitor(int[] inputData) {
         super(inputData);
@@ -31,7 +32,7 @@ public class BalanceVisitor extends AbstractTaskVisitor {
                     elsTwo[countTwo++] = inputData[i];
                 }
             }
-            result = Util.arrToString(elsOne) + " - " + Util.arrToString(elsTwo);
+            result = Util.arrToString(elsOne) + DELIMITER + Util.arrToString(elsTwo);
             endFlag = true;
         }
     }

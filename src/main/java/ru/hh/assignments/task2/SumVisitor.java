@@ -19,9 +19,9 @@ public class SumVisitor extends AbstractTaskVisitor {
         
         long sumSelectedEls = 0;
         for (int elOfSet : set) {
+            if (elOfSet > searchSum) return;
             sumSelectedEls += inputData[elOfSet];
         }
-        
         if (sumSelectedEls == searchSum
                 || (sumOfAllElements - sumSelectedEls) == searchSum) {
             result = YES_ANSWER;

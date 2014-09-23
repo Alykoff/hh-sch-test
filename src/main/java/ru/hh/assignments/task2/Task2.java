@@ -47,7 +47,7 @@ public class Task2 implements Serializable {
     }
 
     protected void iterateAllCombinations(int[] els, TaskVisitor[] visitors) {
-        int maxNumInSet = els.length / 2;
+        int maxNumInSet = els.length == 1 ? 1 : els.length / 2;
         for (int i = 1; i <= maxNumInSet; i++) {
             iterateCombinationWithNEls(els, visitors, i);
         }

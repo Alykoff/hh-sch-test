@@ -20,7 +20,7 @@ import ru.hh.assignments.Util;
 public class Task1 implements Serializable {
     private static final long serialVersionUID = -6836187127547323610L;
     private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;
-    private static final String INTEGER_PATTERN = "(.)*\\.0$";
+    private static final String INTEGER_PATTERN = "(.*)\\.0$";
     
     public static void main(String[] args) {
         String minEl = doTask(args);
