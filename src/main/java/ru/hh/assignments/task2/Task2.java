@@ -21,7 +21,7 @@ import java.io.Serializable;
 public class Task2 implements Serializable {
     private static final long serialVersionUID = -8679609024840591334L;
     public static final int SEARCH_SUM = 100;
-    public static final String VISITOR_ANSWER_DELIMITER = "\n";
+    public static final String VISITOR_RESULT_DELIMITER = "\n";
 
     public static void main(String[] args) {
         System.out.println(new Task2().doTask(args));
@@ -44,12 +44,12 @@ public class Task2 implements Serializable {
         visitors[0] = new BalanceVisitor(els);
         visitors[1] = new SumVisitor(els, SEARCH_SUM);
         iterateAllCombinations(els, visitors);
-        return visitors[0].getResult() + VISITOR_ANSWER_DELIMITER + visitors[1].getResult();
+        return visitors[0].getResult() + VISITOR_RESULT_DELIMITER + visitors[1].getResult();
     }
 
     protected void iterateAllCombinations(int[] els, TaskVisitor[] visitors) {
-        int maxNumInSet = els.length == 1 ? 1 : els.length / 2;
-        for (int i = 1; i <= maxNumInSet; i++) {
+        int maxNumOfSelectedEls = els.length == 1 ? 1 : els.length / 2;
+        for (int i = 1; i <= maxNumOfSelectedEls; i++) {
             iterateCombinationWithNEls(els, visitors, i);
         }
     }
@@ -69,7 +69,7 @@ public class Task2 implements Serializable {
         while (pointer >= minPointer) {
             int currentPosition = selectedEls[pointer];
 
-            if (maxPointer - pointer == maxPosition - currentPosition) {
+            if ((maxPointer - pointer) == (maxPosition - currentPosition)) {
                 if (pointer == minPointer) {
                     handleVisitors(visitors, selectedEls);
                     return;

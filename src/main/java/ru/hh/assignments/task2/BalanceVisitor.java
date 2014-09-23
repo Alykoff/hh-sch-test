@@ -9,6 +9,12 @@ public class BalanceVisitor extends AbstractTaskVisitor {
     public BalanceVisitor(int[] inputData) {
         super(inputData);
         result = "";
+        // невозможно разделить исходное множество (состоящих из натуральных чисел)
+        // на два множества равных по сумме, если
+        // сумма всех элементов нечетная.
+        if (sumOfAllElements % 2 != 0) {
+            endFlag = true;
+        }
     }
     
     @Override

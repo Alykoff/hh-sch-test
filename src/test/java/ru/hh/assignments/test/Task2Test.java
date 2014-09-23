@@ -15,8 +15,8 @@ import ru.hh.assignments.task2.SumVisitor;
 import ru.hh.assignments.task2.Task2;
 
 public class Task2Test {
-    private static final String YES_TAIL = Task2.VISITOR_ANSWER_DELIMITER + SumVisitor.YES_ANSWER;
-    private static final String NO_TAIL = Task2.VISITOR_ANSWER_DELIMITER + SumVisitor.NO_ANSWER;
+    private static final String YES_TAIL = Task2.VISITOR_RESULT_DELIMITER + SumVisitor.YES_ANSWER;
+    private static final String NO_TAIL = Task2.VISITOR_RESULT_DELIMITER + SumVisitor.NO_ANSWER;
     
     @Test
     public void testWithOneEl() {

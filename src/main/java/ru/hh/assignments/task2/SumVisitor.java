@@ -19,7 +19,10 @@ public class SumVisitor extends AbstractTaskVisitor {
         
         long sumSelectedEls = 0;
         for (int elOfSet : set) {
-            if (elOfSet > searchSum) return;
+            // Если элемент X превышает
+            // заданное число М, то его сумма с другими натуральными
+            // числами заведомо превышает число M.
+            if (inputData[elOfSet] > searchSum) return;
             sumSelectedEls += inputData[elOfSet];
         }
         if (sumSelectedEls == searchSum
