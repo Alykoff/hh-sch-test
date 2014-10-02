@@ -17,7 +17,7 @@ public class Task1Test {
     public void beforeTest() {
         Random rand = new Random();
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < 100_000; i++) {
+        for (int i = 0; i < 10_000; i++) {
             long x = rand.nextInt(100_000);
             long y = rand.nextInt(100_000);
             builder.append(x)
@@ -28,11 +28,10 @@ public class Task1Test {
         rand100Points = builder.toString().trim().split(" ");
     }
     
-//    @Test(timeout=1000)
-//    public void test100Points() {
-//        Task1.doTask(rand100Points);
-//    }
-//    
+    @Test(timeout=1000)
+    public void test100Points() {
+        Task1.doTask(rand100Points);
+    }
     
     @Test
     public void testSearchMinLengths() {
