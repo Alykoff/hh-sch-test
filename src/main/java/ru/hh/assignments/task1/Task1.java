@@ -20,6 +20,7 @@ import ru.hh.assignments.Util;
 public class Task1 implements Serializable {
     private static final long serialVersionUID = -6836187127547323610L;
     private static final int MIN_NUM_OF_INPUT_ELEMENTS = 4;
+    private static final int MAX_NUM_OF_POINTS = Double.valueOf(Math.sqrt(Integer.MAX_VALUE)).intValue();
     private static final String INTEGER_PATTERN = "(.*)\\.0$";
     
     public static void main(String[] args) {
@@ -34,7 +35,9 @@ public class Task1 implements Serializable {
         if (args.length % 2 != 0) {
             throw new IllegalArgumentException("The number of arguments must be even.");
         }
-        
+        if ((args.length >> 1) >= MAX_NUM_OF_POINTS) {
+            throw new IllegalArgumentException("The number of arguments to much.");
+        }
         Point[] points = null;
         try {
             points = getPoints(args);
@@ -60,7 +63,7 @@ public class Task1 implements Serializable {
 
     private static double[] getLengthsOfSegments(Point[] points) {
         int numOfPoints = points.length;
-        int numOfLengthsOfSegments = numOfPoints * (numOfPoints - 1) / 2;
+        int numOfLengthsOfSegments = (numOfPoints * (numOfPoints - 1)) / 2;
         double[] lengthsOfSegments = new double[numOfLengthsOfSegments];
         
         int count = 0;
