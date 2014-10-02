@@ -10,9 +10,9 @@ public class Util {
     }
     
     public static double sqLen(Point p1, Point p2) {
-        long xLen = (p1.getX() - p2.getX());
-        long yLen = (p1.getY() - p2.getY());
-        return (1.0 * xLen * xLen + 1.0 * yLen * yLen);
+        double xLen = (p1.getX() - p2.getX());
+        double yLen = (p1.getY() - p2.getY());
+        return (xLen * xLen + yLen * yLen);
     }
     
     public static double min(double[] elements) {

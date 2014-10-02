@@ -85,15 +85,9 @@ public class Task1 implements Serializable {
     private static void search(int lo, int hi) {
         if (hi - lo <= 3) {
             checkMinLen(lo, hi);
-            for (int i = lo; i <= hi; i++) {
-                for (int j = i + 1; j <= hi; j++) {
-                    double len = Util.sqLen(points.get(i), points.get(j));
-                    if (len < minSq) minSq = len;
-                }
-            }
             return;
         }
-        int mid = (hi - lo) >> 1;
+        int mid = ((hi - lo) >> 1) + lo;
         Point midPoint = points.get(mid);
         search(lo, mid);
         search(mid + 1, hi);
@@ -102,7 +96,6 @@ public class Task1 implements Serializable {
         for (int i = lo; i >= 0; i--) {
             long xDist = midPoint.getX() - points.get(i).getX();
             if (xDist < mid) {
-//                long yDist = midPoint.getY() - points.get(i).getY();
                 clP.add(points.get(i));
             } else {
                 break;
@@ -118,6 +111,7 @@ public class Task1 implements Serializable {
         }
         
         for (Point point : clP) {
+            if (point.getY() > mid) break;
             double len = Util.sqLen(midPoint, point);
             if (len < minSq) minSq = len;
         }
@@ -129,7 +123,7 @@ public class Task1 implements Serializable {
         for (int i = 0; i < args.length; i += 2) {
             long xEl = Long.parseLong(args[i]);
             long yEl = Long.parseLong(args[i + 1]);
-            result[i / 2] = new Point(xEl, yEl);
+            result[i >> 1] = new Point(xEl, yEl);
         }
         return result;
     }
