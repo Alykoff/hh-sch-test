@@ -1,0 +1,136 @@
+<html><meta charset="UTF-8"><style>html { 
+    font-size: 100%; 
+    overflow-y: scroll; 
+    -webkit-text-size-adjust: 100%; 
+    -ms-text-size-adjust: 100%; 
+}
+
+body{
+    font-family: helvetica, arial, freesans, clean, sans-serif;
+    color: #333;
+    background-color: #fff;
+    border-color: #999999;
+    border-width: 2px;
+    line-height: 1.5;
+    margin: 2em 3em;
+    text-align:left;
+    padding: 0 100px 0 100px;
+}
+
+pre{
+    background-color: #eee;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: auto;
+}
+code{
+    background-color: #eee;
+    padding: 1px 3px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px; 
+}
+pre code {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+li p{
+    margin: 0.3em;
+}
+ul > li{
+    list-style-type: disc;
+}
+a:link, a:visited{
+    color: #33e;
+    text-decoration: none;
+}
+a:hover{
+    color: #00f;
+    text-shadow:1px 1px 2px #ccf;
+    text-decoration:underline;
+}
+h1{
+    color: #999;
+    font-weight: 400;
+    font-size: 36px;
+}
+h2{
+    border-bottom: 1px dotted #aaa;
+    margin-bottom: 1em;
+    color: #333;
+    font-size: 30px;
+}
+h3{
+    color: #666;
+    font-size: 24px;
+}
+h4 {
+    font-size: 21px;
+}
+h5 {
+    font-size: 18px;
+}
+.shadow{
+    -webkit-box-shadow:0 5px 15px #000;
+    -moz-box-shadow:0 5px 15px #000;
+    box-shadow:0 5px 15px #000;     
+}
+</style><body><h2>Требования</h2>
+<ul>
+<li>jdk (&gt;= 7)</li>
+</ul>
+<h2>Описание сборки и запуска</h2>
+<h4>Сборка/тестирование/запуск при помощи <a href="http://maven.apache.org/">maven</a></h4>
+<ul>
+<li>
+<p>Требуется наличие установленого <code>maven</code></p>
+</li>
+<li>
+<p>В файле <code>pom.xml</code> найти элемент <code>&lt;mainClass&gt;</code> и в нем прописать либо
+<code>${hh.class.task2}</code> (для дальнейшего запуска первой задачи), либо <code>${hh.class.task1}</code> (для дальнейшего запуска второй задачи). Сохранить внесенные изменения.</p>
+</li>
+<li>
+<p>Открыть командную строку(терминал) в корневой папке проекта.</p>
+</li>
+<li>
+<p>Если требуется запустить тесты, то в командной строке следует запустить команду: </p>
+<p><code>mvn clean test</code></p>
+</li>
+<li>
+<p>Для сборки проекта следует ввести команду:</p>
+<p><code>mvn clean test compile assembly:single</code></p>
+</li>
+<li>
+<p>После этого проект соберется со всеми зависимостями.</p>
+</li>
+<li>
+<p>Для запуска (после сборки) проекта в командной строке следует ввести: </p>
+<p><code>java -jar target/hh-sch-test-1.0.0-jar-with-dependencies.jar</code> + <code>передаваемые аргументы</code></p>
+</li>
+<li>
+<p>Например:</p>
+<p><code>java -jar target/hh-sch-test-1.0.0-jar-with-dependencies.jar 11 12 23 99</code></p>
+</li>
+</ul>
+<h4>Компилирование при помощи <code>javac</code> и запуск при помощи <code>java</code></h4>
+<ul>
+<li>
+<p>Открыть командную строку(терминал) в корневой папке проекта.</p>
+</li>
+<li>
+<p>Создать папку <code>target</code> в корневой папке:</p>
+<p><code>mkdir target</code></p>
+</li>
+<li>
+<p>Скомпилировать <code>Task1.java</code> и <code>Task2.java</code> в папку <code>target</code>:</p>
+<p><code>javac -d target -cp ./src/main/java/ src/main/java/ru/hh/assignments/task1/Task1.java</code></p>
+<p><code>javac -d target -cp ./src/main/java/ src/main/java/ru/hh/assignments/task2/Task2.java</code></p>
+</li>
+<li>
+<p>Запустить <code>Task1.java</code> и <code>Task2.java</code>:</p>
+<p><code>java -cp target ru.hh.assignments.task1.Task1 12 11 10 15</code></p>
+<p><code>java -cp target ru.hh.assignments.task2.Task2 12 11 10 15</code></p>
+</li>
+</ul></body></html>
