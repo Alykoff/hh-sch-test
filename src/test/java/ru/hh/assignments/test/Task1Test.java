@@ -2,7 +2,6 @@ package ru.hh.assignments.test;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Arrays;
 import java.util.Random;
 
 import org.junit.Before;
